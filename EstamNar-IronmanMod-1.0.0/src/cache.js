@@ -84,7 +84,21 @@ exports.mod = (mod_info) => {
 			fileIO.write(db.user.cache[id],assort)
 		}
 	}
-		
+	
+	//Nightmares
+	if(!config.disableNightmares){
+		let Locations = fileIO.readParsed(db.user.cache.locations)
+		let Maps = Object.keys(Locations)
+		for(let index in Maps){
+			let map = Maps[index]
+			let base = Locations[map].base
+			for(let I in base.waves){
+				base.waves[I].WildSpawnType = "bossKilla"
+			}
+		}
+		fileIO.write(db.user.cache.locations, Locations)
+	}
+
 	fileIO.write("user/cache/db.json", db);
 	
 	logger.logSuccess("[MOD] Estams Ironman Mod Part 1; Applied");
