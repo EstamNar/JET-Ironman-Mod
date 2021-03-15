@@ -4,10 +4,7 @@ Special thanks to AppeaseTheCheese for being the patient engine that pulled this
 
 ESTAMS IRONMAN MOD - Based on his custom personal server build. 
 
-THIS MOD IS ONLY TESTED COMPATIBLE WITH CLIENT VERSION 12.9! 
-12.8 IS NOT SUPPORTED!
-
-The purpose of this mod is to dramatically increase the difficulty of the vanilla JET experience with changes in non-raid systems, rather than bot AI or loot generation. With the included Ironman profile(selectable in the editions dropdown on profile created/wipe), you start with only a 9mm pistol. You will find no rest or relaxation while not in a raid, storage space is at a premium, all the traders have abandoned you and taken your Flea Market access with them... And if you die... it really is game over, resetting you back to day 1. 
+The purpose of this mod is to dramatically increase the difficulty of the vanilla JET experience with changes in non-raid systems, rather than bot AI or loot generation. With the included Ironman profile(selectable in the editions dropdown on profile created/wipe), you start with only a 9mm pistol. You will find no rest or relaxation while not in a raid, storage space is at a premium, all the traders have closed up shop, the Flea Market market has been disbanded... And if you die... it really is game over, resetting you back to day 1. 
 
 There is a USER_CONFIG you can enable or disable each of these "features" with, however they were designed to work together, and may become very unbalanced if mixed and matched. (Some people just cant live without the Flea tho...)
 
@@ -23,7 +20,7 @@ CONFIGURE: To enable or disable portions of the mod, open the USER_CONFIG file i
 
 FEATURES / CHANGELOG:
 "disableRagfair" - Enable/Disable the Flea Market.
-"disableTraders" - Enable/Disable all Traders.
+"disableTraders" - Enable/Disable all traders ability to buy or sell. Quests, insurance, repairs, and clothing services function normally.
 "disableRegeneration" - Enable/Disable all passive Health, Energy, and Hydration regeneration when not in raid.
 "disableTrialHeal" - Enable/Disable the Therapist's free healing services after a raid.
 "smallStashes" - Enable/Disable setting all stashes to 10x4. Hideout upgrades add 10x4 each.
