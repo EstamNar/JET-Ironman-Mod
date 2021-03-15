@@ -56,18 +56,21 @@ exports.mod = (mod_info) => {
 	//Traders Mod
 	if(config.disableTraders){
 		let keys = Object.keys(db.cacheBase.traders)
+		let TraderCache = internal.path.resolve(__dirname, "categories.json");
 		for(index in keys){
 			let id = keys[index];
 			if(id.toLowerCase() == "ragfair") continue;
 			let traders = fileIO.readParsed(db.cacheBase.traders[id].base);
 			let IronmanTraders = internal.path.resolve(__dirname,id + "base.json");
-
+			
 			traders.sell_category = [];
 
 			db.cacheBase.traders[id].base = IronmanTraders;
+			db.cacheBase.traders[id].categories = TraderCache
 			fileIO.write(IronmanTraders, traders);
 		
 		}
+		fileIO.write(TraderCache, [])
 		keys = Object.keys(db.user.cache).filter(x => x.includes("assort_"));
 		for(index in keys){
 			let id = keys[index];
@@ -76,7 +79,7 @@ exports.mod = (mod_info) => {
 
 			 assort.data.items = []
 			 assort.data.barter_scheme = {}
-			 assort.data.loyalty_level_items = {}			
+			 assort.data.loyal_level_items = {}			
 
 			fileIO.write(db.user.cache[id],assort)
 		}
