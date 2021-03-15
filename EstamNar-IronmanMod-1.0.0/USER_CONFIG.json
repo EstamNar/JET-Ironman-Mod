@@ -4,5 +4,6 @@
 	"disableRegeneration": true,
 	"disableTrialHeal": true,
 	"smallStashes": true,
-	"softWipeOnDeath": true
+	"softWipeOnDeath": true,
+	"disableNightmares": true
 }
