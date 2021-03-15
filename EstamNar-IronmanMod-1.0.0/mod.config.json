@@ -1,0 +1,10 @@
+{
+	"name": "IronmanMod",
+	"author": "EstamNar",
+	"version": "1.0.0",
+	"license": "MIT",
+	"src": {
+		"src/cache.js": "CacheModLoad",
+		"src/tamper.js": "TamperModLoad"
+	}
+}

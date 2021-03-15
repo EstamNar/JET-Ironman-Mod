@@ -1,0 +1,8 @@
+{
+	"disableRagfair": false,
+	"disableTraders": true,
+	"disableRegeneration": false,
+	"disableTrialHeal": false,
+	"smallStashes": false,
+	"softWipeOnDeath": false
+}
