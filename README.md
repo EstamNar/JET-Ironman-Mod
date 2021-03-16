@@ -2,7 +2,7 @@ Created by Estam Nar
 
 Special thanks to AppeaseTheCheese for being the patient engine that pulled this mod along in development. 
 
-ESTAMS IRONMAN MOD - Based on his custom personal server build. 
+ESTAMS IRONMAN MOD - Based on my custom personal server build. 
 
 The purpose of this mod is to dramatically increase the difficulty of the vanilla JET experience with changes in non-raid systems, rather than bot AI or loot generation. With the included Ironman profile(selectable in the editions dropdown on profile created/wipe), you start with only a 9mm pistol. You will find no rest or relaxation while not in a raid, storage space is at a premium, all the traders have closed up shop, the Flea Market market has been disbanded... And if you die... it really is game over, resetting you back to day 1. 
 
