@@ -1,0 +1,11 @@
+{
+    "name": "IronmanMod",
+	"author": "EstamNar",
+	"version": "1.0.2",
+    "downloadUpdateUrl": "",
+    "forceDowngrade": false,
+    "excludeFromUpdate": [
+        "user_config.json",
+        "updater.json"
+    ]
+}
