@@ -105,6 +105,10 @@ exports.mod = (mod_info) => {
 			for(let I in base.waves){
 				base.waves[I].WildSpawnType = "bossKilla";
 			}
+			for(let I in base.BossLocationSpawn){
+				base.BossLocationSpawn[I].BossName = "bossKilla";
+			}
+		
 		}
 		fileIO.write(db.user.cache.locations, Locations);
 	}

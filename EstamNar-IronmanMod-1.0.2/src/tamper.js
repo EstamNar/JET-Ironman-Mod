@@ -5,7 +5,9 @@ exports.mod = (mod_info) => {
 
     //Softwipe Mod
     if(config.softWipeOnDeath)
-        offraid_f.saveProgress = require("./offraidchanges").saveProgress;
-
+    
+        if(server.version == "1.1.1") offraid_f.saveProgress = require("./offraidchanges1.1.1").saveProgress;
+        else offraid_f.saveProgress = require("./offraidchanges1.1.0").saveProgress;
+    
     logger.logSuccess("[MOD] Estams Ironman Mod Part 2; Applied");
 }
