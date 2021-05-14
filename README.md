@@ -4,7 +4,7 @@ Special thanks to AppeaseTheCheese for being the patient engine that pulled this
 
 ESTAMS IRONMAN MOD - Based on his custom personal server build. 
 
-The purpose of this mod is to dramatically increase the difficulty of the vanilla JET experience with changes in non-raid systems, rather than bot AI or loot generation. With the included Ironman profile(selectable in the editions dropdown on profile created/wipe), you start with only a 9mm pistol. You will find no rest or relaxation while not in a raid, storage space is at a premium, all the traders have abandoned you and taken your Flea Market access with them... And if you die... it really is game over, resetting you back to day 1. 
+The purpose of this mod is to dramatically increase the difficulty of the vanilla JET experience with changes in non-raid systems, rather than bot AI or loot generation. With the included Ironman profile(selectable in the editions dropdown on profile created/wipe), you start with only a 9mm pistol. You will find no rest or relaxation while not in a raid, storage space is at a premium, all the traders have closed shop and the Flea Market has been disbanded... And if you die... it really is game over, wiping your profile back to day 1. 
 
 There is a USER_CONFIG you can enable or disable each of these "features" with, however they were designed to work together, and may become very unbalanced if mixed and matched. (Some people just cant live without the Flea tho...)
 
@@ -20,7 +20,10 @@ CONFIGURE: To enable or disable portions of the mod, open the USER_CONFIG file i
 
 FEATURES / CHANGELOG:
 
-Update 1.0.2 - Patched for compatability with Kovacs Altered Escape v2.0.2
+Update 1.0.2 
+- Patched for compatability with Kovacs Altered Escape v2.0.2
+- Fixed wipe on death not working correctly.
+- Fixed hideout stash upgrades not applying correctly.
 
 "disableRagfair" - Enable/Disable the Flea Market.
 "disableTraders" - Enable/Disable all Traders.
