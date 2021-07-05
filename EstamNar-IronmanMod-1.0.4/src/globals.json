@@ -2794,7 +2794,7 @@
 					}
 				},
 				"HealPrice": {
-					"HealthPointPrice": 25,
+					"HealthPointPrice": 100,
 					"HydrationPointPrice": 0,
 					"EnergyPointPrice": 0,
 					"TrialLevels": 0,

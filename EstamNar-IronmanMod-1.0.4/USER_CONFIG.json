@@ -1,0 +1,9 @@
+{
+	"disableRagfair": false,
+	"disableTraders": false,
+	"disableRegeneration": true,
+	"disableTrialHeal": true, 
+	"smallStashes": true,
+	"softWipeOnDeath": true,
+	"disableNightmares": true
+}
