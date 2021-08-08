@@ -1,6 +1,6 @@
 {
-	"disableRagfair": false,
-	"disableTraders": false,
+	"disableRagfair": true,
+	"disableTraders": true,
 	"disableRegeneration": true,
 	"disableTrialHeal": true, 
 	"smallStashes": true,
