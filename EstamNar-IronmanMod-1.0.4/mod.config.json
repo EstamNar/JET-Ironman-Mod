@@ -8,5 +8,6 @@
 		"src/tamper.js": "TamperModLoad"
 	},
 	"autoUpdate": true,
-	"checkUpdateUrl": "https://raw.githubusercontent.com/EstamNar/JET-Ironman-Mod/main/updater.json"
+	"checkUpdateUrl": "https://raw.githubusercontent.com/EstamNar/JET-Ironman-Mod/main/updater.json",
+	"required": []
 }
