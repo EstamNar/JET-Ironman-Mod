@@ -1,39 +1,55 @@
 exports.mod = (mod_info) => {
 	logger.logInfo("[MOD] Estams Ironman Mod Part 1");
 
-	let config = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
+	let userconfig = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
 	
 	//Tweaks Mod
 	let base = db.base ? db.base : db.cacheBase;
 	let globals = fileIO.readParsed(base.globals);
 	let IronmanTweaks = internal.path.resolve(__dirname, "globals.json");
+	let tweaks;
+	
+	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha"){ 
+		tweaks = globals.config; 
+	}
 
-	if(config.disableRegeneration){
-		globals.data.config.Health.Effects.Regeneration.MinimumHealthPercentage = 0;
-		globals.data.config.Health.Effects.Regeneration.Energy = 0;
-		globals.data.config.Health.Effects.Regeneration.Hydration = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.Head.Value = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.Chest.Value = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.Stomach.Value = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.LeftArm.Value = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.RightArm.Value = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.LeftLeg.Value = 0;
-		globals.data.config.Health.Effects.Regeneration.BodyHealth.RightLeg.Value = 0;
+	if(server.version == "1.1.0" || server.version == "1.1.1"){ 
+		tweaks = globals.data.config; 
+	}
+
+	if(userconfig.disableRegeneration){
+		tweaks.Health.Effects.Regeneration.MinimumHealthPercentage = 0;
+		tweaks.Health.Effects.Regeneration.Energy = 0;
+		tweaks.Health.Effects.Regeneration.Hydration = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.Head.Value = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.Chest.Value = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.Stomach.Value = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.LeftArm.Value = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.RightArm.Value = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.LeftLeg.Value = 0;
+		tweaks.Health.Effects.Regeneration.BodyHealth.RightLeg.Value = 0;
 	}
 	
-	if(config.disableTrialHeal){
-		globals.data.config.Health.HealPrice.HealthPointPrice = 100;
-		globals.data.config.Health.HealPrice.TrialLevels = 0;
-		globals.data.config.Health.HealPrice.TrialRaids = 0;
+	if(userconfig.disableTrialHeal){
+		tweaks.Health.HealPrice.HealthPointPrice = 100;
+		tweaks.Health.HealPrice.TrialLevels = 0;
+		tweaks.Health.HealPrice.TrialRaids = 0;
 	}
 	
-	globals.data.config.RagFair.enabled = !config.disableRagfair;
+	tweaks.RagFair.enabled = !userconfig.disableRagfair;
 
 	base.globals = IronmanTweaks;
 	fileIO.write(IronmanTweaks, globals);
 
 	//Profile Mod
-	let profileDir = internal.path.resolve(__dirname, "Ironman");
+	let version;
+	if(server.version == "1.1.0" || server.version == "1.1.1"){ 
+		version = "1.1.0/Ironman"
+	}
+	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha"){ 
+		version = "1.2.0/Ironman"
+	}
+	let profileDir = internal.path.resolve(__dirname, version);
 	let files = fileIO.readDir(profileDir);
 	let profile = {};
 	for(let index in files){
@@ -42,10 +58,10 @@ exports.mod = (mod_info) => {
 		let fullPath = internal.path.resolve(profileDir, file);
 		profile[fileName] = fullPath;
 	}
-	db.profile["Ironman"] = profile;
+	db.profile[version] = profile;
 
 	//Stashes Mod
-	if(config.smallStashes){
+	if(userconfig.smallStashes){
 		let items = fileIO.readParsed(db.user.cache.items);
 		let stashIds = ["5811ce772459770e9e5f9532", "5811ce572459770cba1a34ea", "5811ce662459770f6f490f32", "566abbc34bdc2d92178b4576"];
 		for(index in stashIds){
@@ -62,8 +78,10 @@ exports.mod = (mod_info) => {
 		fileIO.write(db.user.cache.items, items);
 	}
 
-	//Hideout Mod
-	if(config.disableTraders){
+	if(server.version == "1.1.0"){
+		
+		//Hideout Mod
+		if(userconfig.disableTraders){
 
 		let HideoutTweaks = internal.path.resolve(db.user.cache.hideout_areas);
 		let HideoutAreas = fileIO.readParsed(HideoutTweaks);
@@ -98,10 +116,11 @@ exports.mod = (mod_info) => {
 		
 		fileIO.write(HideoutTweaks, HideoutAreas);
 
+		}
 	}
 
 	//Traders Mod
-	if(config.disableTraders){
+	if(userconfig.disableTraders){
 		let tpath = db.traders ? db.traders : db.cacheBase.traders;
 		let keys = Object.keys(tpath);
 		let TraderCache = internal.path.resolve(__dirname, "categories.json");
@@ -142,7 +161,7 @@ exports.mod = (mod_info) => {
 	}
 	
 	//Nightmares
-	if(!config.disableNightmares){
+	if(!userconfig.disableNightmares){
 		let Locations = fileIO.readParsed(db.user.cache.locations);
 		let Maps = Object.keys(Locations);
 		for(let index in Maps){

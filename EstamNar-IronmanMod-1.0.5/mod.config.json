@@ -1,12 +1,13 @@
 {
 	"name": "IronmanMod",
 	"author": "EstamNar",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"license": "MIT",
 	"src": {
 		"src/cache.js": "CacheModLoad",
 		"src/tamper.js": "TamperModLoad"
 	},
+	"required": [],
 	"autoUpdate": true,
 	"checkUpdateUrl": "https://raw.githubusercontent.com/EstamNar/JET-Ironman-Mod/main/updater.json"
 }

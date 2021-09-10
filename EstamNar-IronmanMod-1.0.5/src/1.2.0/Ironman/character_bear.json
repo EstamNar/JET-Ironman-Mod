@@ -10,7 +10,7 @@
         "Level": 1,
         "Experience": 0,
         "RegistrationDate": "__REPLACEME__",
-        "GameVersion": "ironman",
+        "GameVersion": "1.2.0/ironman",
         "AccountType": 0,
         "MemberCategory": 0,
         "lockedMoveCommands": false,
@@ -21,9 +21,8 @@
             "BotDifficulty": "easy",
             "Experience": -1
         },
-        "NeedWipe": false,
-        "GlobalWipe": false,
         "NicknameChangeDate": 0,
+        "IsStreamerModeAvailable": false,
         "Bans": []
     },
     "Customization": {
@@ -92,6 +91,11 @@
         "UpdateTime": 1608816501
     },
     "Inventory": {
+        "equipment": "5fe4977574f15b4ad31b6631",
+        "stash": "5fe4977574f15b4ad31b66b6",
+        "sortingTable": "60dca3da42ad9b706b369aca",
+        "questRaidItems": "5fe4977574f15b4ad31b66b7",
+        "questStashItems": "5fe4977574f15b4ad31b66b8",
         "items": [
 			{
 				"_id": "5fe4977574f15b4ad31b6631",
@@ -108,42 +112,6 @@
 				"_tpl": "566abbc34bdc2d92178b4576"
 			},
 			{
-				"_id": "5fe4977574f15b4ad31b66a1",
-				"_tpl": "576a581d2459771e7b1bc4f1",
-				"parentId": "5fe4977574f15b4ad31b6631",
-				"slotId": "Holster",
-				"upd": {
-					"Repairable": {
-						"MaxDurability": 100,
-						"Durability": 100
-					},
-					"FireMode": {
-						"FireMode": "single"
-					}
-				}
-			},
-			{
-				"_id": "5fe4977574f15b4ad31b669f",
-				"_tpl": "576a5ed62459771e9c2096cb",
-				"parentId": "5fe4977574f15b4ad31b66a1",
-				"slotId": "mod_magazine"
-			},
-			{
-				"_id": "5fe4977574f15b4ad31b669e",
-				"_tpl": "56d59d3ad2720bdb418b4577",
-				"parentId": "5fe4977574f15b4ad31b669f",
-				"slotId": "cartridges",
-				"upd": {
-					"StackObjectsCount": 18
-				}
-			},
-			{
-				"_id": "5fe4977574f15b4ad31b66a0",
-				"_tpl": "576a63cd2459771e796e0e11",
-				"parentId": "5fe4977574f15b4ad31b66a1",
-				"slotId": "mod_pistol_grip"
-			},
-			{
 				"_id": "5fe4977574f15b4ad31b66b8",
 				"_tpl": "5963866b86f7747bfa1c4462"
 			},
@@ -152,22 +120,60 @@
 				"_tpl": "5963866286f7747bf429b572"
 			},
 			{
-				"_id": "I-c3d466c4-5417-49df-8f56-1cf5e2815426",
+				"_id": "60dca3da42ad9b706b369aca",
+				"_tpl": "602543c13fee350cd564d032"
+			},
+			{
+				"_id": "ru730233373745822238ekgf",
+				"_tpl": "576a581d2459771e7b1bc4f1",
+				"parentId": "5fe4977574f15b4ad31b6631",
+				"slotId": "Holster",
+				"upd": {
+					"StackObjectsCount": 1
+				}
+			},
+			{
+				"_id": "ru730233373707177476xpUQ",
+				"_tpl": "576a5ed62459771e9c2096cb",
+				"parentId": "ru730233373745822238ekgf",
+				"slotId": "mod_magazine",
+				"upd": {
+					"StackObjectsCount": 1
+				}
+			},
+			{
+				"_id": "ru730233372968283457CP3S",
+				"_tpl": "576a63cd2459771e796e0e11",
+				"parentId": "ru730233373745822238ekgf",
+				"slotId": "mod_pistol_grip",
+				"upd": {
+					"StackObjectsCount": 1
+				}
+			},
+			{
+				"_id": "ru730233595361225840UB22",
 				"_tpl": "56d59d3ad2720bdb418b4577",
-				"parentId": "5fe4977574f15b4ad31b66a1",
+				"parentId": "ru730233373745822238ekgf",
 				"slotId": "patron_in_weapon",
 				"upd": {
 					"StackObjectsCount": 1
 				}
+			},
+			{
+				"_id": "ru73023422963791357ASisu",
+				"_tpl": "56d59d3ad2720bdb418b4577",
+				"parentId": "ru730233373707177476xpUQ",
+				"slotId": "cartridges",
+				"location": 0,
+				"upd": {
+					"StackObjectsCount": 18
+				}
 			}
 		],
-        "equipment": "5fe4977574f15b4ad31b6631",
-        "stash": "5fe4977574f15b4ad31b66b6",
-        "questRaidItems": "5fe4977574f15b4ad31b66b7",
-        "questStashItems": "5fe4977574f15b4ad31b66b8",
         "fastPanel": {}
     },
     "Skills": {
+        "Points": 0,
         "Common": [
             {
                 "Id": "BotReload",
@@ -488,8 +494,7 @@
                 "LastAccess": 0
             }
         ],
-        "Mastering": [],
-        "Points": 0
+        "Mastering": []
     },
     "Stats": {
         "SessionCounters": null,
@@ -524,7 +529,7 @@
         "55d7217a4bdc2d86028b456d": false,
         "557ffd194bdc2d28148b457f": false,
         "544a5cde4bdc2d39388b456b": false,
-        "544a11ac4bdc2d470e8b456a": false,
+        "5732ee6a24597719ae0c0281": false,
         "5ca20abf86f77418567a43f2": false,
         "564ca99c4bdc2d16268b4589": false,
         "54491bb74bdc2d09088b4567": false,
@@ -825,7 +830,7 @@
         "Notes": []
     },
     "Quests": [],
-    "TraderStandings": {},
+    "TradersInfo": {},
     "RagfairInfo": {
         "rating": 0.2,
         "isRatingGrowing": true,
