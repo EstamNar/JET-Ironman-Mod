@@ -63,6 +63,7 @@ function wipeAccount(pmcData, sessionID){
     var edition = pmcData.Info.GameVersion.replace(/_/g, " ").toLowerCase(); // Grabs user edition and removes the _ word seperators
     var key = Object.keys(db.profile).filter(x => x.toLowerCase() == edition)[0]
     var newProfile = fileIO.readParsed(db.profile[key]["character_" + pmcData.Info.Side.toLowerCase()]); // Default profile for edition and side
+    let userconfig = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
     
     newProfile.Info.Side = pmcData.Info.Side; // Saves players faction BEAR/USEC
     newProfile.Info.Voice = pmcData.Info.Voice; // Saves player voice selection
@@ -72,16 +73,26 @@ function wipeAccount(pmcData, sessionID){
     
     pmcData.Info = newProfile.Info; // Converts to "New Profile" data
     pmcData.Health = newProfile.Health; // Converts to "New Profile" data
-    pmcData.Inventory = newProfile.Inventory; // Converts to "New Profile" data
-    pmcData.Skills = newProfile.Skills; // Converts to "New Profile" data
+    if(userconfig.wipeInventory){  // Converts to "New Profile" data if true in config
+        pmcData.Inventory = newProfile.Inventory;
+    }; 
+    if(userconfig.wipeSkills){ // Converts to "New Profile" data if true in config
+        pmcData.Skills = newProfile.Skills; 
+    }; 
     pmcData.Encyclopedia = newProfile.Encyclopedia; // Converts to "New Profile" data
     pmcData.ConditionCounters = newProfile.ConditionCounters; // Converts to "New Profile" data
     pmcData.BackendCounters = newProfile.BackendCounters; // Converts to "New Profile" data
     pmcData.InsuredItems = newProfile.InsuredItems; // Converts to "New Profile" data
-    pmcData.Hideout = newProfile.Hideout; // Converts to "New Profile" data
+    if(userconfig.wipeHideout){  // Converts to "New Profile" data if true in config
+        pmcData.Hideout = newProfile.Hideout;
+    };
     pmcData.Bonuses = newProfile.Bonuses; // Converts to "New Profile" data
-    pmcData.Quests = newProfile.Quests; // Converts to "New Profile" data
-    pmcData.TraderStandings = newProfile.TraderStandings; // Converts to "New Profile" data
+    if(userconfig.wipeQuests){  // Converts to "New Profile" data if true in config
+        pmcData.Quests = newProfile.Quests;
+    };
+    if(userconfig.wipeTraderStandings){  // Converts to "New Profile" data if true in config
+        pmcData.TraderStandings = newProfile.TraderStandings;
+    };
 }
 
 /* adds SpawnedInSession property to items found in a raid */
@@ -203,6 +214,7 @@ function getPlayerGear(items) {
         'SecondPrimaryWeapon',
         'Holster',
         'Headwear',
+        'ArmBand',
         'Earpiece',
         'Eyewear',
         'FaceCover',

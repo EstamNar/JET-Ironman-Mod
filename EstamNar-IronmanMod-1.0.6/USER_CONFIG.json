@@ -4,6 +4,13 @@
 	"disableRegeneration": true,
 	"disableTrialHeal": true, 
 	"smallStashes": true,
+	"disableNightmares": true,
 	"softWipeOnDeath": true,
-	"disableNightmares": true
+
+		"wipeInventory": true,
+		"wipeSkills": true,
+		"wipeHideout": true, 
+		"wipeQuests": true,
+		"wipeTraderStandings": true
+	
 }

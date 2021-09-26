@@ -3,6 +3,7 @@ function wipeAccount(pmcData, sessionID){
     var edition = pmcData.Info.GameVersion.replace(/_/g, " ").toLowerCase();
     var key = Object.keys(db.profile).filter(x => x.toLowerCase() == edition)[0]
     var newProfile = fileIO.readParsed(db.profile[key]["character_" + pmcData.Info.Side.toLowerCase()]); // Default profile for edition and side
+    let userconfig = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
     
     newProfile.Info.Side = pmcData.Info.Side;
     newProfile.Info.Voice = pmcData.Info.Voice;
@@ -12,16 +13,26 @@ function wipeAccount(pmcData, sessionID){
     
     pmcData.Info = newProfile.Info;
     pmcData.Health = newProfile.Health;
-    pmcData.Inventory = newProfile.Inventory;
-    pmcData.Skills = newProfile.Skills;
+    if(userconfig.wipeInventory){
+        pmcData.Inventory = newProfile.Inventory;
+    };
+    if(userconfig.wipeSkills){
+        pmcData.Skills = newProfile.Skills;
+    };
     pmcData.Encyclopedia = newProfile.Encyclopedia;
     pmcData.ConditionCounters = newProfile.ConditionCounters;
     pmcData.BackendCounters = newProfile.BackendCounters;
     pmcData.InsuredItems = newProfile.InsuredItems;
-    pmcData.Hideout = newProfile.Hideout;
+    if(userconfig.wipeHideout){
+        pmcData.Hideout = newProfile.Hideout;
+    };
     pmcData.Bonuses = newProfile.Bonuses;
-    pmcData.Quests = newProfile.Quests;
-    pmcData.TraderStandings = newProfile.TraderStandings;
+    if(userconfig.wipeQuests){
+        pmcData.Quests = newProfile.Quests;
+    };
+    if(userconfig.wipeTraderStandings){
+        pmcData.TraderStandings = newProfile.TraderStandings;
+    };
 }
 
 function getPlayerGear(items) {
@@ -29,6 +40,7 @@ function getPlayerGear(items) {
     const inventorySlots = [
         'FirstPrimaryWeapon',
         'SecondPrimaryWeapon',
+        'ArmBand',
         'Holster',
         'Headwear',
         'Earpiece',

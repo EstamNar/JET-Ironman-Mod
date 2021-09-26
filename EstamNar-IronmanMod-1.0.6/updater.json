@@ -1,8 +1,8 @@
 {
     "name": "IronmanMod",
 	"author": "EstamNar",
-	"version": "1.0.5",
-    "downloadUpdateUrl": "https://github.com/EstamNar/JET-Ironman-Mod/releases/download/1.0.5/EstamNar-IronmanMod-1.0.5.7z",
+	"version": "1.0.6",
+    "downloadUpdateUrl": "https://github.com/EstamNar/JET-Ironman-Mod/releases/download/1.0.6/EstamNar-IronmanMod-1.0.6.7z",
     "forceDowngrade": false,
     "excludeFromUpdate": [
         "user_config.json",
