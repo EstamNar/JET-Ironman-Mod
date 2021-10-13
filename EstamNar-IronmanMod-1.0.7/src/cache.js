@@ -9,7 +9,7 @@ exports.mod = (mod_info) => {
 	let IronmanTweaks = internal.path.resolve(__dirname, "globals.json");
 	let tweaks;
 	
-	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha"){ 
+	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha" || server.version == "0.12.3-1010-Beta"){ 
 		tweaks = globals.config; 
 	}
 
@@ -44,10 +44,10 @@ exports.mod = (mod_info) => {
 	//Profile Mod
 	let version;
 	if(server.version == "1.1.0" || server.version == "1.1.1"){ 
-		version = "1.1.0/Ironman"
+		version = "12.9/Ironman"
 	}
-	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha"){ 
-		version = "1.2.0/Ironman"
+	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha" || server.version == "0.12.3-1010-Beta"){ 
+		version = "12.11/Ironman"
 	}
 	let profileDir = internal.path.resolve(__dirname, version);
 	let files = fileIO.readDir(profileDir);
