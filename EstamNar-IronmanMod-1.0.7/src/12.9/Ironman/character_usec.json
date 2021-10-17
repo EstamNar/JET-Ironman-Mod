@@ -10,7 +10,7 @@
         "Level": 1,
         "Experience": 0,
         "RegistrationDate": "__REPLACEME__",
-        "GameVersion": "1.2.0/ironman",
+        "GameVersion": "12.9/ironman",
         "AccountType": 0,
         "MemberCategory": 0,
         "lockedMoveCommands": false,
@@ -21,8 +21,9 @@
             "BotDifficulty": "easy",
             "Experience": -1
         },
+        "NeedWipe": false,
+        "GlobalWipe": false,
         "NicknameChangeDate": 0,
-        "IsStreamerModeAvailable": false,
         "Bans": []
     },
     "Customization": {
@@ -91,11 +92,6 @@
         "UpdateTime": 1608817888
     },
     "Inventory": {
-        "equipment": "5fe49cdfa19cac3fa905407f",
-        "stash": "5fe49cdfa19cac3fa9054115",
-        "sortingTable": "60dca3da42ad9b706b369aca",
-        "questRaidItems": "5fe49cdfa19cac3fa9054116",
-        "questStashItems": "5fe49cdfa19cac3fa9054117",
         "items": [
 			{
 				"_id": "5fe49cdfa19cac3fa905407f",
@@ -112,6 +108,94 @@
 				"_tpl": "566abbc34bdc2d92178b4576"
 			},
 			{
+				"_id": "5fe49cdfa19cac3fa9054107",
+				"_tpl": "5cadc190ae921500103bb3b6",
+				"parentId": "5fe49cdfa19cac3fa905407f",
+				"slotId": "Holster",
+				"upd": {
+					"Repairable": {
+						"MaxDurability": 100,
+						"Durability": 100
+					},
+					"FireMode": {
+						"FireMode": "single"
+					}
+				}
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054100",
+				"_tpl": "5cadc1c6ae9215000f2775a4",
+				"parentId": "5fe49cdfa19cac3fa9054107",
+				"slotId": "mod_barrel"
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa90540ff",
+				"_tpl": "5cadc390ae921500126a77f1",
+				"parentId": "5fe49cdfa19cac3fa9054100",
+				"slotId": "mod_muzzle"
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054101",
+				"_tpl": "5cadc431ae921500113bb8d5",
+				"parentId": "5fe49cdfa19cac3fa9054107",
+				"slotId": "mod_pistol_grip"
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054104",
+				"_tpl": "5cadc55cae921500103bb3be",
+				"parentId": "5fe49cdfa19cac3fa9054107",
+				"slotId": "mod_reciever"
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054102",
+				"_tpl": "5cadd940ae9215051e1c2316",
+				"parentId": "5fe49cdfa19cac3fa9054104",
+				"slotId": "mod_sight_rear",
+				"upd": {
+					"Sight": {
+						"ScopesCurrentCalibPointIndexes": [
+							0
+						],
+						"ScopesSelectedModes": [
+							0
+						],
+						"SelectedScope": 0
+					}
+				}
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054103",
+				"_tpl": "5cadd919ae921500126a77f3",
+				"parentId": "5fe49cdfa19cac3fa9054104",
+				"slotId": "mod_sight_front",
+				"upd": {
+					"Sight": {
+						"ScopesCurrentCalibPointIndexes": [
+							0
+						],
+						"ScopesSelectedModes": [
+							0
+						],
+						"SelectedScope": 0
+					}
+				}
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054106",
+				"_tpl": "5cadc2e0ae9215051e1c21e7",
+				"parentId": "5fe49cdfa19cac3fa9054107",
+				"slotId": "mod_magazine"
+			},
+			{
+				"_id": "5fe49cdfa19cac3fa9054105",
+				"_tpl": "56d59d3ad2720bdb418b4577",
+				"parentId": "5fe49cdfa19cac3fa9054106",
+				"slotId": "cartridges",
+				"upd": {
+					"StackObjectsCount": 17
+				}
+			},
+			{
 				"_id": "5fe49cdfa19cac3fa9054117",
 				"_tpl": "5963866b86f7747bfa1c4462"
 			},
@@ -120,105 +204,22 @@
 				"_tpl": "5963866286f7747bf429b572"
 			},
 			{
-				"_id": "60dca3da42ad9b706b369aca",
-				"_tpl": "602543c13fee350cd564d032"
-			},
-			{
-				"_id": "ru7302257477581577097r3i",
-				"_tpl": "5cadc190ae921500103bb3b6",
-				"parentId": "5fe49cdfa19cac3fa905407f",
-				"slotId": "Holster",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257478297491048pwY",
-				"_tpl": "5cadc1c6ae9215000f2775a4",
-				"parentId": "ru7302257477581577097r3i",
-				"slotId": "mod_barrel",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257471607412767Ulu",
-				"_tpl": "5cadc431ae921500113bb8d5",
-				"parentId": "ru7302257477581577097r3i",
-				"slotId": "mod_pistol_grip",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257471725426291Csb",
-				"_tpl": "5cadc55cae921500103bb3be",
-				"parentId": "ru7302257477581577097r3i",
-				"slotId": "mod_reciever",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257475409520221HdQ",
-				"_tpl": "5cadc2e0ae9215051e1c21e7",
-				"parentId": "ru7302257477581577097r3i",
-				"slotId": "mod_magazine",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257473798754705d5T",
-				"_tpl": "5cadc390ae921500126a77f1",
-				"parentId": "ru7302257478297491048pwY",
-				"slotId": "mod_muzzle",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257474807512049j7U",
-				"_tpl": "5cadd940ae9215051e1c2316",
-				"parentId": "ru7302257471725426291Csb",
-				"slotId": "mod_sight_rear",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru73022574772667282523aJ",
-				"_tpl": "5cadd919ae921500126a77f3",
-				"parentId": "ru7302257471725426291Csb",
-				"slotId": "mod_sight_front",
-				"upd": {
-					"StackObjectsCount": 1
-				}
-			},
-			{
-				"_id": "ru7302257534101165847sma",
+				"_id": "I-34693db3-88ce-438b-88ba-3174f3622d75",
 				"_tpl": "56d59d3ad2720bdb418b4577",
-				"parentId": "ru7302257475409520221HdQ",
-				"slotId": "cartridges",
-				"location": 0,
-				"upd": {
-					"StackObjectsCount": 17
-				}
-			},
-			{
-				"_id": "ru7302257556622840733O0I",
-				"_tpl": "56d59d3ad2720bdb418b4577",
-				"parentId": "ru7302257477581577097r3i",
+				"parentId": "5fe49cdfa19cac3fa9054107",
 				"slotId": "patron_in_weapon",
 				"upd": {
 					"StackObjectsCount": 1
 				}
 			}
 		],
+        "equipment": "5fe49cdfa19cac3fa905407f",
+        "stash": "5fe49cdfa19cac3fa9054115",
+        "questRaidItems": "5fe49cdfa19cac3fa9054116",
+        "questStashItems": "5fe49cdfa19cac3fa9054117",
         "fastPanel": {}
     },
     "Skills": {
-        "Points": 0,
         "Common": [
             {
                 "Id": "BotReload",
@@ -539,7 +540,8 @@
                 "LastAccess": 0
             }
         ],
-        "Mastering": []
+        "Mastering": [],
+        "Points": 0
     },
     "Stats": {
         "SessionCounters": null,
@@ -574,7 +576,7 @@
         "55d7217a4bdc2d86028b456d": false,
         "557ffd194bdc2d28148b457f": false,
         "544a5cde4bdc2d39388b456b": false,
-        "5732ee6a24597719ae0c0281": false,
+        "544a11ac4bdc2d470e8b456a": false,
         "5b44c8ea86f7742d1627baf1": false,
         "564ca99c4bdc2d16268b4589": false,
         "54491bb74bdc2d09088b4567": false,
@@ -895,7 +897,7 @@
         "Notes": []
     },
     "Quests": [],
-    "TradersInfo": {},
+    "TraderStandings": {},
     "RagfairInfo": {
         "rating": 0.2,
         "isRatingGrowing": true,
