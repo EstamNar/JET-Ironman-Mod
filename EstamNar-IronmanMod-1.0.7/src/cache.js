@@ -9,7 +9,7 @@ exports.mod = (mod_info) => {
 	let IronmanTweaks = internal.path.resolve(__dirname, "globals.json");
 	let tweaks;
 	
-	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha" || server.version == "0.12.3-1010-Beta"){ 
+	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha" || server.version == "0.12.3-1010-Beta" || server.version == "0.12.4-1012-Dev"){ 
 		tweaks = globals.config; 
 	}
 
