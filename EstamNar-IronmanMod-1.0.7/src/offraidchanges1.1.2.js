@@ -73,7 +73,7 @@ function markFoundItems(pmcData, profile, isPlayerScav) {
 
 function RemoveFoundItems(profile) {
   const items = _database.items;
-  
+
   for (let offraidItem of profile.Inventory.items) {
     // Remove the FIR status if the player died and the item marked FIR
     if ("upd" in offraidItem && "SpawnedInSession" in offraidItem.upd && !items[offraidItem._tpl]._props.QuestItem) {
@@ -116,12 +116,12 @@ function deleteInventory(pmcData, sessionID) {
   for (let item of pmcData.Inventory.items) {
     // remove normal item
     if ((item.parentId === pmcData.Inventory.equipment &&
-        item.slotId !== "SecuredContainer" &&
-        item.slotId !== "Scabbard" &&
-        item.slotId !== "Pockets" &&
-        item.slotId !== "Compass" &&
-        item.slotId !== "ArmBand") ||
-        item.parentId === pmcData.Inventory.questRaidItems
+      item.slotId !== "SecuredContainer" &&
+      item.slotId !== "Scabbard" &&
+      item.slotId !== "Pockets" &&
+      item.slotId !== "Compass" &&
+      item.slotId !== "ArmBand") ||
+      item.parentId === pmcData.Inventory.questRaidItems
     ) {
       toDelete.push(item._id);
     }
@@ -201,40 +201,50 @@ function getPlayerGear(items) {
   return inventoryItems;
 }
 
-function wipeAccount(pmcData, sessionID){
-    var edition = pmcData.Info.GameVersion.replace(/_/g, " ").toLowerCase(); // Grabs user edition and removes the _ word seperators
-    var key = Object.keys(db.profile).filter(x => x.toLowerCase() == edition)[0]
-    var newProfile = fileIO.readParsed(db.profile[key]["character_" + pmcData.Info.Side.toLowerCase()]); // Default profile for edition and side
-    let userconfig = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
-    
-    newProfile.Info.Side = pmcData.Info.Side; // Saves players faction BEAR/USEC
-    newProfile.Info.Voice = pmcData.Info.Voice; // Saves player voice selection
-    newProfile.Info.Nickname = pmcData.Info.Nickname; // Saves player name
-    newProfile.Info.LowerNickname = pmcData.Info.LowerNickname; // Players name, but lowercase
-    newProfile.Info.RegistrationDate = pmcData.Info.RegistrationDate; // Saves player registration date
-    
-    pmcData.Info = newProfile.Info; // Converts to "New Profile" data
-    pmcData.Health = newProfile.Health; // Converts to "New Profile" data
-    if(userconfig.wipeInventory){  // Converts to "New Profile" data if true in config
-        pmcData.Inventory = newProfile.Inventory;
-    }; 
-    if(userconfig.wipeSkills){ // Converts to "New Profile" data if true in config
-        pmcData.Skills = newProfile.Skills; 
-    }; 
-    pmcData.Encyclopedia = newProfile.Encyclopedia; // Converts to "New Profile" data
-    pmcData.ConditionCounters = newProfile.ConditionCounters; // Converts to "New Profile" data
-    pmcData.BackendCounters = newProfile.BackendCounters; // Converts to "New Profile" data
-    pmcData.InsuredItems = newProfile.InsuredItems; // Converts to "New Profile" data
-    if(userconfig.wipeHideout){  // Converts to "New Profile" data if true in config
-        pmcData.Hideout = newProfile.Hideout;
+function wipeAccount(pmcData, sessionID) {
+  var edition = pmcData.Info.GameVersion.replace(/_/g, " ").toLowerCase(); // Grabs user edition and removes the _ word seperators
+  var key = Object.keys(db.profile).filter(x => x.toLowerCase() == edition)[0]
+  var newProfile = fileIO.readParsed(db.profile[key]["character_" + pmcData.Info.Side.toLowerCase()]); // Default profile for edition and side
+  let userconfig = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
+
+  newProfile.Info.Side = pmcData.Info.Side; // Saves players faction BEAR/USEC
+  newProfile.Info.Voice = pmcData.Info.Voice; // Saves player voice selection
+  newProfile.Info.Nickname = pmcData.Info.Nickname; // Saves player name
+  newProfile.Info.LowerNickname = pmcData.Info.LowerNickname; // Players name, but lowercase
+  newProfile.Info.RegistrationDate = pmcData.Info.RegistrationDate; // Saves player registration date
+
+  pmcData.Info = newProfile.Info; // Converts to "New Profile" data
+  pmcData.Health = newProfile.Health; // Converts to "New Profile" data
+  if(userconfig.wipeInventory){ 
+    let container = pmcData.Inventory.items.find(item => item.slotId === 'SecuredContainer');
+    let childitems = helper_f.findAndReturnChildrenAsItems(pmcData.Inventory.items, container['_id']);
+    let containertoremove = newProfile.Inventory.items.findIndex(item => item.slotId === 'SecuredContainer');
+
+    if(userconfig.saveCase){
+        newProfile.Inventory.items.splice(containertoremove, 1)
+        //newProfile.Inventory.items.push(container);
+        newProfile.Inventory.items.push(...childitems);            
     };
-    pmcData.Bonuses = newProfile.Bonuses; // Converts to "New Profile" data
-    if(userconfig.wipeQuests){  // Converts to "New Profile" data if true in config
-        pmcData.Quests = newProfile.Quests;
-    };
-    if(userconfig.wipeTraderStandings){  // Converts to "New Profile" data if true in config
-        pmcData.TraderStandings = newProfile.TraderStandings;
-    };
+
+    pmcData.Inventory = newProfile.Inventory;
+  };
+  if (userconfig.wipeSkills) { // Converts to "New Profile" data if true in config
+    pmcData.Skills = newProfile.Skills;
+  };
+  pmcData.Encyclopedia = newProfile.Encyclopedia; // Converts to "New Profile" data
+  pmcData.ConditionCounters = newProfile.ConditionCounters; // Converts to "New Profile" data
+  pmcData.BackendCounters = newProfile.BackendCounters; // Converts to "New Profile" data
+  pmcData.InsuredItems = newProfile.InsuredItems; // Converts to "New Profile" data
+  if (userconfig.wipeHideout) {  // Converts to "New Profile" data if true in config
+    pmcData.Hideout = newProfile.Hideout;
+  };
+  pmcData.Bonuses = newProfile.Bonuses; // Converts to "New Profile" data
+  if (userconfig.wipeQuests) {  // Converts to "New Profile" data if true in config
+    pmcData.Quests = newProfile.Quests;
+  };
+  if (userconfig.wipeTraderStandings) {  // Converts to "New Profile" data if true in config
+    pmcData.TraderStandings = newProfile.TraderStandings;
+  };
 }
 
 function getSecuredContainer(items) {
@@ -307,12 +317,12 @@ function saveProgress(offraidData, sessionID) {
 
   const mapName = _database.locations[MapNameConversion(sessionID)].base;
   const insuranceEnabled = mapName.Insurance;
-  
+
   let pmcData = profile_f.handler.getPmcProfile(sessionID);
   let scavData = profile_f.handler.getScavProfile(sessionID);
   const isPlayerScav = offraidData.isPlayerScav;
   const isDead = offraidData.exit !== "survived" && offraidData.exit !== "runner";
-  const preRaidGear = isPlayerScav? [] : getPlayerGear(pmcData.Inventory.items);
+  const preRaidGear = isPlayerScav ? [] : getPlayerGear(pmcData.Inventory.items);
 
   // set pmc data
   if (!isPlayerScav) {
@@ -333,7 +343,7 @@ function saveProgress(offraidData, sessionID) {
 
     // level 69 cap to prevent visual bug occuring at level 70
     if (pmcData.Info.Experience > 23129881) {
-        pmcData.Info.Experience = 23129881;
+      pmcData.Info.Experience = 23129881;
     }
 
     // Remove the Lab card
@@ -357,10 +367,10 @@ function saveProgress(offraidData, sessionID) {
   for (let k in offraidData.profile.Inventory.items) {
     let item = offraidData.profile.Inventory.items[k];
     if (item._id && item._id.length > 24) {
-        item._id = utility.generateNewItemId();
+      item._id = utility.generateNewItemId();
     }
     if (item.parentId && item.parentId.length > 24) {
-        item.parentId = utility.generateNewItemId();
+      item.parentId = utility.generateNewItemId();
     }
   }
 
@@ -383,7 +393,7 @@ function saveProgress(offraidData, sessionID) {
 
   if (isDead) {
     if (insuranceEnabled) {
-      insurance_f.handler.storeDeadGear(pmcData,offraidData, preRaidGear, sessionID);
+      insurance_f.handler.storeDeadGear(pmcData, offraidData, preRaidGear, sessionID);
     }
     pmcData = wipeAccount(pmcData, sessionID);
     //Delete carried quests items

@@ -46,7 +46,7 @@ exports.mod = (mod_info) => {
 	if(server.version == "1.1.0" || server.version == "1.1.1"){ 
 		version = "12.9/Ironman"
 	}
-	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha" || server.version == "0.12.3-1010-Beta"){ 
+	if(server.version == "1.2.0" || server.version == "0.12.2-0409-Alpha" || server.version == "0.12.3-1010-Beta" || server.version == "0.12.4-1012-Dev"){ 
 		version = "12.11/Ironman"
 	}
 	let profileDir = internal.path.resolve(__dirname, version);
