@@ -3,7 +3,7 @@
 	"disableTraders": true,
 	"disableRegeneration": true,
 	"disableTrialHeal": true, 
-	"smallStashes": false,
+	"smallStashes": true,
 	"disableNightmares": true,
 	"softWipeOnDeath": true,
 		
