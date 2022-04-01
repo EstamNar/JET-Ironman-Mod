@@ -196,7 +196,7 @@
 			},
 			{
 				"_id": "I-a3b5d741-9611-4a18-aae4-ea3c61fd2dda",
-				"_tpl": "56d59d3ad2720bdb418b4577",
+				"_tpl": "58864a4f2459770fcc257101",
 				"parentId": "5fe49cdfa19cac3fa90540ec",
 				"slotId": "patron_in_weapon",
 				"upd": {
@@ -205,7 +205,7 @@
 			},
 			{
 				"_id": "I-6ac828f8-788d-4c21-af3e-eb2095d488f3",
-				"_tpl": "56d59d3ad2720bdb418b4577",
+				"_tpl": "58864a4f2459770fcc257101",
 				"upd": {
 					"StackObjectsCount": 17
 				},
