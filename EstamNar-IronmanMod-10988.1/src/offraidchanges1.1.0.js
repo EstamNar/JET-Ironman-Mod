@@ -1,46 +1,36 @@
 // Alternate version of deleteInventory to wipe the account
-function wipeAccount(pmcData, sessionID) {
+function wipeAccount(pmcData, sessionID){
     var edition = pmcData.Info.GameVersion.replace(/_/g, " ").toLowerCase();
     var key = Object.keys(db.profile).filter(x => x.toLowerCase() == edition)[0]
     var newProfile = fileIO.readParsed(db.profile[key]["character_" + pmcData.Info.Side.toLowerCase()]); // Default profile for edition and side
     let userconfig = fileIO.readParsed(internal.path.resolve(__dirname, "../USER_CONFIG.json"));
-
+    
     newProfile.Info.Side = pmcData.Info.Side;
     newProfile.Info.Voice = pmcData.Info.Voice;
     newProfile.Info.Nickname = pmcData.Info.Nickname;
     newProfile.Info.LowerNickname = pmcData.Info.LowerNickname;
     newProfile.Info.RegistrationDate = pmcData.Info.RegistrationDate;
-
+    
     pmcData.Info = newProfile.Info;
     pmcData.Health = newProfile.Health;
     if(userconfig.wipeInventory){
-        let container = pmcData.Inventory.items.find(item => item.slotId === 'SecuredContainer');
-        let childitems = helper_f.findAndReturnChildrenAsItems(pmcData.Inventory.items, container['_id']);
-        let containertoremove = newProfile.Inventory.items.findIndex(item => item.slotId === 'SecuredContainer');
-
-        if(userconfig.saveCase){
-            newProfile.Inventory.items.splice(containertoremove, 1)
-            //newProfile.Inventory.items.push(container);
-            newProfile.Inventory.items.push(...childitems);            
-        };
-
         pmcData.Inventory = newProfile.Inventory;
     };
-    if (userconfig.wipeSkills) {
+    if(userconfig.wipeSkills){
         pmcData.Skills = newProfile.Skills;
     };
     pmcData.Encyclopedia = newProfile.Encyclopedia;
     pmcData.ConditionCounters = newProfile.ConditionCounters;
     pmcData.BackendCounters = newProfile.BackendCounters;
     pmcData.InsuredItems = newProfile.InsuredItems;
-    if (userconfig.wipeHideout) {
+    if(userconfig.wipeHideout){
         pmcData.Hideout = newProfile.Hideout;
     };
     pmcData.Bonuses = newProfile.Bonuses;
-    if (userconfig.wipeQuests) {
+    if(userconfig.wipeQuests){
         pmcData.Quests = newProfile.Quests;
     };
-    if (userconfig.wipeTraderStandings) {
+    if(userconfig.wipeTraderStandings){
         pmcData.TraderStandings = newProfile.TraderStandings;
     };
 }
@@ -132,7 +122,7 @@ function markFoundItems(pmcData, profile, isPlayerScav) {
         if ("upd" in offraidItem) {
             offraidItem.upd.SpawnedInSession = true;
         } else {
-            offraidItem.upd = { "SpawnedInSession": true };
+            offraidItem.upd = {"SpawnedInSession": true};
         }
     }
 
@@ -181,29 +171,31 @@ function saveProgress(offraidData, sessionID) {
     if (!global._database.gameplayConfig.inraid.saveLootEnabled) {
         return;
     }
-    // TODO: FOr now it should work untill we figureout whats is fucked at dll - it will also prevent future data loss and will eventually disable feature then crash everything in the other hand. ~Maoci
-    let offlineWorksProperly = false;
-    if (typeof offraid_f.handler.players[sessionID] != "undefined")
-        if (fileIO.exist(db.locations[offraid_f.handler.players[sessionID].Location.toLowerCase()]))
-            offlineWorksProperly = true;
+	// TODO: FOr now it should work untill we figureout whats is fucked at dll - it will also prevent future data loss and will eventually disable feature then crash everything in the other hand. ~Maoci
+	let offlineWorksProperly = false;
+	if(typeof offraid_f.handler.players[sessionID] != "undefined")
+		if(fileIO.exist(db.locations[offraid_f.handler.players[sessionID].Location.toLowerCase()]))
+			offlineWorksProperly = true;
     let insuranceEnabled = false;
-    if (!offlineWorksProperly) {
-        logger.logWarning("insurance Disabled!! cause of varaible undefined or file not found. Check line 249-250 at src/classes/offraid.js");
-    } else {
-        let map = fileIO.readParsed(db.locations[offraid_f.handler.players[sessionID].Location.toLowerCase()]).base;
-        insuranceEnabled = map.Insurance;
-    }
-    if (typeof offraidData == "undefined") {
-        logger.logError("offraidData" + offraidData);
-        return;
-    }
-    if (typeof offraidData.exit == "undefined" || typeof offraidData.isPlayerScav == "undefined" || typeof offraidData.profile == "undefined") {
-        logger.logError("offraidData variables are empty... (exit, isPlayerScav, profile)");
-        logger.logError(offraidData.exit);
-        logger.logError(offraidData.isPlayerScav);
-        logger.logError(offraidData.profile);
-        return;
-    }
+	if(!offlineWorksProperly){
+		logger.logWarning("insurance Disabled!! cause of varaible undefined or file not found. Check line 249-250 at src/classes/offraid.js");
+	} else {
+		let map = fileIO.readParsed(db.locations[offraid_f.handler.players[sessionID].Location.toLowerCase()]).base;
+		insuranceEnabled = map.Insurance;
+	}
+	if(typeof offraidData == "undefined")
+	{
+		logger.logError("offraidData" + offraidData);
+		return;
+	}
+	if(typeof offraidData.exit == "undefined" || typeof offraidData.isPlayerScav == "undefined" || typeof offraidData.profile == "undefined")
+	{
+		logger.logError("offraidData variables are empty... (exit, isPlayerScav, profile)");
+		logger.logError(offraidData.exit);
+		logger.logError(offraidData.isPlayerScav);
+		logger.logError(offraidData.profile);
+		return;
+	}
     let pmcData = profile_f.handler.getPmcProfile(sessionID);
     let scavData = profile_f.handler.getScavProfile(sessionID);
     const isPlayerScav = offraidData.isPlayerScav;

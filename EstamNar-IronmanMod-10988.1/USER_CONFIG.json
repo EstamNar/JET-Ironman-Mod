@@ -6,9 +6,8 @@
 	"smallStashes": true,
 	"disableNightmares": true,
 	"softWipeOnDeath": true,
-		
+
 		"wipeInventory": true,
-			"saveCase": true,
 		"wipeSkills": true,
 		"wipeHideout": true, 
 		"wipeQuests": true,

@@ -10,7 +10,7 @@
         "Level": 1,
         "Experience": 0,
         "RegistrationDate": "__REPLACEME__",
-        "GameVersion": "12.9/ironman",
+        "GameVersion": "ironman",
         "AccountType": 0,
         "MemberCategory": 0,
         "lockedMoveCommands": false,
@@ -129,15 +129,6 @@
 				"slotId": "mod_magazine"
 			},
 			{
-				"_id": "5fe4977574f15b4ad31b669e",
-				"_tpl": "56d59d3ad2720bdb418b4577",
-				"parentId": "5fe4977574f15b4ad31b669f",
-				"slotId": "cartridges",
-				"upd": {
-					"StackObjectsCount": 18
-				}
-			},
-			{
 				"_id": "5fe4977574f15b4ad31b66a0",
 				"_tpl": "576a63cd2459771e796e0e11",
 				"parentId": "5fe4977574f15b4ad31b66a1",
@@ -152,13 +143,23 @@
 				"_tpl": "5963866286f7747bf429b572"
 			},
 			{
-				"_id": "I-c3d466c4-5417-49df-8f56-1cf5e2815426",
+				"_id": "I-f4d022a9-6307-4619-aa87-b31d0767fc80",
 				"_tpl": "56d59d3ad2720bdb418b4577",
 				"parentId": "5fe4977574f15b4ad31b66a1",
 				"slotId": "patron_in_weapon",
 				"upd": {
 					"StackObjectsCount": 1
 				}
+			},
+			{
+				"_id": "I-797c8b6b-9482-415e-8d7d-02579f672d42",
+				"_tpl": "56d59d3ad2720bdb418b4577",
+				"upd": {
+					"StackObjectsCount": 18
+				},
+				"parentId": "5fe4977574f15b4ad31b669f",
+				"slotId": "cartridges",
+				"location": 0
 			}
 		],
         "equipment": "5fe4977574f15b4ad31b6631",
