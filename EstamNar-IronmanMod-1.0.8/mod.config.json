@@ -4,7 +4,6 @@
 	"version": "1.0.8",
 	"license": "MIT",
 	"src": {
-		"src/cache.js": "CacheModLoad",
 		"src/tamper.js": "TamperModLoad"
 	},
 	"required": [],
